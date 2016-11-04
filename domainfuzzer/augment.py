@@ -109,7 +109,7 @@ class Augmenter:
             try:
                 ans = resolv.query(self.domain.name, 'MX')
                 mx = str(sorted(ans)[0].exchange)[:-1].lower()
-                if mx:
+                if mx and mx != 'localhost':
                     self.domain.dns_mx = mx
             except Exception:
                 pass
